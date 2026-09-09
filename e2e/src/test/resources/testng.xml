@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Cross-module gate: runs only the smoke group from the ui and api test jars. -->
+<suite name="SDET Cross-Module Smoke Gate" parallel="methods" thread-count="2" verbose="1">
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.sdet.framework.*"/>
+        </packages>
+    </test>
+</suite>

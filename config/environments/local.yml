@@ -1,0 +1,11 @@
+ui:
+  baseUrl: https://www.saucedemo.com
+  # Public demo credentials published by SauceDemo. Real credentials belong in
+  # <environment>.local.yml or OS environment variables, never in a committed file.
+  username: standard_user
+  password: secret_sauce
+  lockedOutUsername: locked_out_user
+api:
+  baseUrl: https://jsonplaceholder.typicode.com
+framework:
+  headless: false

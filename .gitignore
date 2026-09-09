@@ -1,0 +1,10 @@
+target/
+.idea/
+*.iml
+.DS_Store
+.env
+test-output/
+
+# Machine-only config overrides stay local, but the template is documentation.
+config/environments/*.local.yml
+!config/environments/example.local.yml

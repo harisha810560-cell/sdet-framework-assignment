@@ -1,0 +1,3 @@
+# Copy to local.local.yml or qa.local.yml for machine-only overrides. Do not commit that file.
+framework:
+  headless: false

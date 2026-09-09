@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- parallel is safe: DriverFactory is thread-scoped and BaseUiTest opens a browser per method. -->
+<suite name="SauceDemo UI Suite" parallel="methods" thread-count="2" verbose="1">
+    <test name="UI Tests">
+        <packages>
+            <package name="com.sdet.framework.ui.tests"/>
+        </packages>
+    </test>
+</suite>

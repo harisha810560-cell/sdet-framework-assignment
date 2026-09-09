@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Post collection",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "body", "userId"],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "title": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      },
+      "userId": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  }
+}

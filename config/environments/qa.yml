@@ -1,0 +1,7 @@
+ui:
+  baseUrl: https://www.saucedemo.com
+  username: ${SAUCEDEMO_USERNAME:-standard_user}
+  password: ${SAUCEDEMO_PASSWORD:-secret_sauce}
+  lockedOutUsername: ${SAUCEDEMO_LOCKED_OUT_USERNAME:-locked_out_user}
+api:
+  baseUrl: https://jsonplaceholder.typicode.com

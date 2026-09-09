@@ -1,0 +1,75 @@
+image: maven:3.9.11-eclipse-temurin-21
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode --no-transfer-progress -s .mvn/settings.xml"
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+  PLAYWRIGHT_BROWSERS_PATH: "$CI_PROJECT_DIR/.playwright"
+  TEST_ENV: qa
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - .m2/repository
+    - .playwright
+
+stages:
+  - test
+  - cross-browser
+  - gate
+
+.report_artifacts: &report_artifacts
+  when: always
+  expire_in: 1 week
+  paths:
+    - "**/target/surefire-reports/"
+    - "**/target/screenshots/"
+    - "**/target/traces/"
+  reports:
+    junit:
+      - "**/target/surefire-reports/TEST-*.xml"
+
+.build: &build
+  - mvn $MAVEN_CLI_OPTS clean install -DskipTests
+
+.install_browser: &install_browser
+  - mvn $MAVEN_CLI_OPTS -pl ui exec:java -Dexec.args="install --with-deps $BROWSER"
+
+api-tests:
+  stage: test
+  script:
+    - *build
+    - mvn $MAVEN_CLI_OPTS test -pl api
+  artifacts: *report_artifacts
+
+ui-tests:
+  stage: test
+  variables:
+    BROWSER: chromium
+  script:
+    - *build
+    - *install_browser
+    # One retry in CI absorbs infrastructure flake without hiding it: every retry is logged.
+    - mvn $MAVEN_CLI_OPTS test -pl ui -Dframework.headless=true -Dtest.retryCount=1
+  artifacts: *report_artifacts
+
+# Runs the cross-module smoke group on the other two engines.
+ui-cross-browser:
+  stage: cross-browser
+  parallel:
+    matrix:
+      - BROWSER: [firefox, webkit]
+  script:
+    - *build
+    - *install_browser
+    - mvn $MAVEN_CLI_OPTS test -pl e2e -Dframework.headless=true -Dframework.browser=$BROWSER
+  artifacts: *report_artifacts
+
+smoke-gate:
+  stage: gate
+  variables:
+    BROWSER: chromium
+  script:
+    - *build
+    - *install_browser
+    - mvn $MAVEN_CLI_OPTS test -pl e2e -Dframework.headless=true
+  artifacts: *report_artifacts

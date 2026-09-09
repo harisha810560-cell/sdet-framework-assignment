@@ -1,0 +1,7 @@
+ui:
+  baseUrl: ${UI_BASE_URL}
+  username: ${UI_USERNAME}
+  password: ${UI_PASSWORD}
+  lockedOutUsername: ${UI_LOCKED_OUT_USERNAME:-locked_out_user}
+api:
+  baseUrl: ${API_BASE_URL}

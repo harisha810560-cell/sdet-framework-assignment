@@ -1,0 +1,10 @@
+framework:
+  browser: chromium
+  headless: true
+  timeoutMs: 10000
+  screenshotDirectory: target/screenshots
+  traceDirectory: target/traces
+  # Traces are recorded for every UI test but kept only for failures.
+  tracing: true
+api:
+  requestTimeoutMs: 10000
