@@ -8,4 +8,4 @@ ui:
 api:
   baseUrl: https://jsonplaceholder.typicode.com
 framework:
-  headless: false
+  headless: true
