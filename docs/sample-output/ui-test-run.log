@@ -1,0 +1,173 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] sdet-framework-assignment                                          [pom]
+[INFO] commons                                                            [jar]
+[INFO] commons-ui                                                         [jar]
+[INFO] ui                                                                 [jar]
+[INFO] 
+[INFO] -----------------< com.sdet:sdet-framework-assignment >-----------------
+[INFO] Building sdet-framework-assignment 1.0.0                           [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------------< com.sdet:commons >--------------------------
+[INFO] Building commons 1.0.0                                             [2/4]
+[INFO]   from commons/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ commons ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ commons ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ commons ---
+[INFO] skip non existing resourceDirectory /Users/harishakj/SDET_FRAMEWORK_ASSIGNMENT/commons/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ commons ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ commons ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ------------------------< com.sdet:commons-ui >-------------------------
+[INFO] Building commons-ui 1.0.0                                          [3/4]
+[INFO]   from commons-ui/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ commons-ui ---
+[INFO] skip non existing resourceDirectory /Users/harishakj/SDET_FRAMEWORK_ASSIGNMENT/commons-ui/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ commons-ui ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ commons-ui ---
+[INFO] skip non existing resourceDirectory /Users/harishakj/SDET_FRAMEWORK_ASSIGNMENT/commons-ui/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ commons-ui ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ commons-ui ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------------------< com.sdet:ui >-----------------------------
+[INFO] Building ui 1.0.0                                                  [4/4]
+[INFO]   from ui/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ui ---
+[INFO] skip non existing resourceDirectory /Users/harishakj/SDET_FRAMEWORK_ASSIGNMENT/ui/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ui ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ui ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ui ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ ui ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[WARNING] System property [env] overwritten by user properties from Maven session
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+02:06:47 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoLoginTest-validCredentialsSignTheShopperIn
+02:06:48 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoLoginTest-loginIsRejected
+02:06:48 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:48 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:48 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:48 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoLoginTest-validCredentialsSignTheShopperIn
+02:06:49 INFO  c.s.f.u.h.flows.RejectedLoginHelper - Login rejected for not_a_registered_user with 'Epic sadface: Username and password do not match any user in this service'
+02:06:49 INFO  c.s.f.u.v.SauceDemoValidator - Login rejected with 'Epic sadface: Username and password do not match any user in this service'
+02:06:49 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoLoginTest-loginIsRejected
+02:06:50 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoCartTest-addingProductPutsItInTheCart
+02:06:50 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoLoginTest-loginIsRejected
+02:06:51 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:51 INFO  c.s.f.u.h.flows.RejectedLoginHelper - Login rejected for  with 'Epic sadface: Username is required'
+02:06:51 INFO  c.s.f.u.v.SauceDemoValidator - Login rejected with 'Epic sadface: Username is required'
+02:06:51 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoLoginTest-loginIsRejected
+02:06:51 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:51 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:51 INFO  c.s.f.u.h.s.AddItemToCartHelper - Inventory page ready with 6 products
+02:06:51 INFO  c.s.f.u.h.s.AddItemToCartHelper - Added Sauce Labs Backpack ($29.99) to the cart
+02:06:51 INFO  c.s.f.u.v.SauceDemoValidator - Cart holds Sauce Labs Backpack at $29.99
+02:06:51 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoCartTest-addingProductPutsItInTheCart
+02:06:52 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoLoginTest-loginIsRejected
+02:06:53 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoCartTest-cartHoldsEveryProductAdded
+02:06:53 INFO  c.s.f.u.h.flows.RejectedLoginHelper - Login rejected for standard_user with 'Epic sadface: Password is required'
+02:06:53 INFO  c.s.f.u.v.SauceDemoValidator - Login rejected with 'Epic sadface: Password is required'
+02:06:53 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoLoginTest-loginIsRejected
+02:06:53 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:53 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:53 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:54 INFO  c.s.f.u.h.s.AddMultipleItemsToCartHelper - Added 3 products to the cart
+02:06:54 INFO  c.s.f.u.v.SauceDemoValidator - Cart holds 3 products
+02:06:54 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoCartTest-cartHoldsEveryProductAdded
+02:06:54 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoLoginTest-loginIsRejected
+02:06:55 INFO  c.s.f.u.h.flows.RejectedLoginHelper - Login rejected for locked_out_user with 'Epic sadface: Sorry, this user has been locked out.'
+02:06:55 INFO  c.s.f.u.v.SauceDemoValidator - Login rejected with 'Epic sadface: Sorry, this user has been locked out.'
+02:06:55 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoLoginTest-loginIsRejected
+02:06:55 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoCartTest-freshSessionStartsWithAnEmptyCart
+02:06:56 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:56 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoOrderTest-shopperCompletesOrderEndToEnd
+02:06:56 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:56 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:56 INFO  c.s.f.u.h.flows.EmptyCartHelper - Opened the cart without adding a product
+02:06:56 INFO  c.s.f.u.v.SauceDemoValidator - Cart is empty and no badge is rendered
+02:06:56 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoCartTest-freshSessionStartsWithAnEmptyCart
+02:06:57 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:57 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:57 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:57 INFO  c.s.f.u.h.s.AddItemToCartHelper - Inventory page ready with 6 products
+02:06:57 INFO  c.s.f.u.h.s.AddItemToCartHelper - Added Sauce Labs Backpack ($29.99) to the cart
+02:06:57 INFO  c.s.f.u.v.SauceDemoValidator - Cart holds Sauce Labs Backpack at $29.99
+02:06:57 INFO  c.s.f.u.h.saucedemo.CheckoutHelper - Cart page ready with 1 items
+02:06:57 INFO  c.s.f.u.h.saucedemo.CheckoutHelper - Checkout completed
+02:06:57 INFO  c.s.f.u.v.SauceDemoValidator - Order confirmed with header 'Thank you for your order!'
+02:06:57 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoOrderTest-shopperCompletesOrderEndToEnd
+02:06:58 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoCheckoutTest-completeShippingDetailsConfirmTheOrder
+02:06:58 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:59 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:59 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:59 INFO  c.s.f.u.h.s.AddItemToCartHelper - Inventory page ready with 6 products
+02:06:59 INFO  c.s.f.u.h.s.AddItemToCartHelper - Added Sauce Labs Backpack ($29.99) to the cart
+02:06:59 INFO  c.s.f.u.v.SauceDemoValidator - Cart holds Sauce Labs Backpack at $29.99
+02:06:59 INFO  c.s.f.u.h.saucedemo.CheckoutHelper - Cart page ready with 1 items
+02:06:59 INFO  c.s.f.c.listeners.TestLogListener - START SauceDemoCheckoutTest-shippingDetailsWithoutFirstNameAreRefused
+02:06:59 INFO  c.s.f.u.h.saucedemo.CheckoutHelper - Checkout completed
+02:06:59 INFO  c.s.f.u.v.SauceDemoValidator - Order confirmed with header 'Thank you for your order!'
+02:06:59 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoCheckoutTest-completeShippingDetailsConfirmTheOrder
+02:06:59 INFO  c.s.f.u.h.saucedemo.LoginHelper - Login page opened at https://www.saucedemo.com
+02:06:59 INFO  c.s.f.u.h.saucedemo.LoginHelper - Signed in as standard_user
+02:06:59 INFO  c.s.f.u.v.SauceDemoValidator - Signed in and landed on https://www.saucedemo.com/inventory.html
+02:06:59 INFO  c.s.f.u.h.s.AddItemToCartHelper - Inventory page ready with 6 products
+02:07:00 INFO  c.s.f.u.h.s.AddItemToCartHelper - Added Sauce Labs Backpack ($29.99) to the cart
+02:07:00 INFO  c.s.f.u.v.SauceDemoValidator - Cart holds Sauce Labs Backpack at $29.99
+02:07:00 INFO  c.s.f.u.h.f.RejectedCheckoutHelper - Checkout rejected with 'Error: First Name is required'
+02:07:00 INFO  c.s.f.u.v.SauceDemoValidator - Checkout rejected with 'Error: First Name is required'
+02:07:00 INFO  c.s.f.c.listeners.TestLogListener - PASS  SauceDemoCheckoutTest-shippingDetailsWithoutFirstNameAreRefused
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.91 s -- in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for sdet-framework-assignment 1.0.0:
+[INFO] 
+[INFO] sdet-framework-assignment .......................... SUCCESS [  0.002 s]
+[INFO] commons ............................................ SUCCESS [  0.509 s]
+[INFO] commons-ui ......................................... SUCCESS [  0.038 s]
+[INFO] ui ................................................. SUCCESS [ 23.271 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.888 s
+[INFO] Finished at: 2026-09-10T02:07:05+05:30
+[INFO] ------------------------------------------------------------------------

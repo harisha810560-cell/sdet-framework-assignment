@@ -14,6 +14,9 @@ public final class SauceDemoTestData {
 
   public static final int MULTI_ITEM_PRODUCT_COUNT = 3;
 
+  /** Product the single-item journey selects by name. */
+  public static final String TARGET_PRODUCT = "Sauce Labs Backpack";
+
   private SauceDemoTestData() {}
 
   public static CheckoutData validShippingDetails() {

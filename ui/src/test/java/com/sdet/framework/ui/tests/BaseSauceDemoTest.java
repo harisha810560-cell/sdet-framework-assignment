@@ -13,6 +13,7 @@ public abstract class BaseSauceDemoTest extends BaseUiTest {
         .baseUrl(CONFIG.getUi().getBaseUrl())
         .username(CONFIG.getUi().getUsername())
         .password(CONFIG.getUi().getPassword())
+        .productName(SauceDemoTestData.TARGET_PRODUCT)
         .checkoutData(SauceDemoTestData.validShippingDetails())
         .build();
   }

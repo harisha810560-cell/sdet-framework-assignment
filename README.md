@@ -17,6 +17,9 @@ runs both.
 Requirement-to-test mapping, per-endpoint validation detail and known service deviations are in
 [docs/TRACEABILITY.md](docs/TRACEABILITY.md).
 
+Real passing-run reports and console logs are available in
+[docs/sample-output](docs/sample-output/README.md).
+
 ## Prerequisites
 
 - JDK 21

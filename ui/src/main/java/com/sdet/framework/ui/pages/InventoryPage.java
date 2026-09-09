@@ -30,9 +30,27 @@ public class InventoryPage extends BasePage {
     return items.count();
   }
 
-  /** Adds the product at the given position and returns it as displayed. */
+  /** Selects a named product, so the test asserts against a product it actually chose. */
+  public Product addProductToCart(String productName) {
+    Locator matches = items.filter(new Locator.FilterOptions().setHasText(productName));
+    int found = matches.count();
+    if (found != 1) {
+      throw new IllegalStateException(
+          "Expected exactly one product matching '" + productName + "' but found " + found);
+    }
+    return addToCart(matches.first());
+  }
+
+  /** Positional selection, used by the multi-item case where the names do not matter. */
   public Product addProductToCart(int index) {
-    Locator item = items.nth(index);
+    return addToCart(items.nth(index));
+  }
+
+  public List<Product> addProductsToCart(int count) {
+    return IntStream.range(0, count).mapToObj(this::addProductToCart).toList();
+  }
+
+  private Product addToCart(Locator item) {
     Product product =
         Product.builder()
             .name(item.getByTestId(UiConstants.INVENTORY_ITEM_NAME).textContent().trim())
@@ -40,13 +58,5 @@ public class InventoryPage extends BasePage {
             .build();
     item.locator(UiConstants.ADD_TO_CART_CSS).click();
     return product;
-  }
-
-  public Product addFirstProductToCart() {
-    return addProductToCart(0);
-  }
-
-  public List<Product> addProductsToCart(int count) {
-    return IntStream.range(0, count).mapToObj(this::addProductToCart).toList();
   }
 }

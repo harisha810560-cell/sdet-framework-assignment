@@ -22,7 +22,8 @@ public final class SauceDemoValidator {
   }
 
   public static void cartMatchesSelection(
-      List<Product> cartProducts, Product expected, int cartBadgeCount) {
+      List<Product> cartProducts, Product expected, int cartBadgeCount, String requestedProduct) {
+    assertEquals(expected.getName(), requestedProduct, "product selected on the inventory page");
     assertEquals(cartProducts.size(), 1, "cart item count");
     Product actual = cartProducts.get(0);
     assertEquals(actual.getName(), expected.getName(), "cart item name");

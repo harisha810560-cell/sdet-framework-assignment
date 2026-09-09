@@ -27,7 +27,7 @@ public class AddItemToCartHelper extends BaseUiHelper {
 
   @Override
   public ServiceHelper process() {
-    Product selected = inventoryPage.addFirstProductToCart();
+    Product selected = inventoryPage.addProductToCart(uiTestContext.getProductName());
     cartBadgeCount = inventoryPage.cartBadgeCount();
     uiTestContext = uiTestContext.toBuilder().selectedProduct(selected).build();
     cartPage = inventoryPage.openCart();
@@ -38,7 +38,10 @@ public class AddItemToCartHelper extends BaseUiHelper {
   @Override
   public ServiceHelper validate() {
     SauceDemoValidator.cartMatchesSelection(
-        cartPage.products(), uiTestContext.getSelectedProduct(), cartBadgeCount);
+        cartPage.products(),
+        uiTestContext.getSelectedProduct(),
+        cartBadgeCount,
+        uiTestContext.getProductName());
     return this;
   }
 }

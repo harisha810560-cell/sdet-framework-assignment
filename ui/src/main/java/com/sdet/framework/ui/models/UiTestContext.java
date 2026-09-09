@@ -11,6 +11,10 @@ public class UiTestContext {
   String baseUrl;
   String username;
   String password;
+
+  /** Product the shopper intends to buy, selected by name on the inventory page. */
+  String productName;
+
   CheckoutData checkoutData;
   Product selectedProduct;
   List<Product> selectedProducts;
