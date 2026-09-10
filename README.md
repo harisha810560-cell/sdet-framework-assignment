@@ -167,11 +167,10 @@ adding an auth header is a single edit.
 schema in `api/src/main/resources/schemas`, and business fields via explicit assertions. A response
 cannot pass on its status code alone.
 
-**A hand-rolled HTML reporter.** ExtentReports and Allure both add a dependency, and Allure needs a
-separate CLI to render. `HtmlReportListener` writes a self-contained file with per-test status,
-groups, duration, failure message and a link to the failure screenshot, which is enough for this
-scope and keeps the build dependency-free. Surefire's XML is still produced, so CI gets native
-JUnit reporting for free.
+**HTML and Extent reports.** `HtmlReportListener` writes a concise self-contained summary, while
+`ExtentReportListener` generates an Extent Spark dashboard with groups and per-test status. Both
+reports include failure details; Extent also attaches a UI screenshot when one is captured.
+Surefire's XML is still produced, so CI gets native JUnit reporting for free.
 
 **The `e2e` module is a gate, not a third test suite.** It owns no scenarios beyond a configuration
 check. It depends on the `ui` and `api` *test* jars and runs only their `smoke` group, so one
@@ -187,6 +186,7 @@ threads. The API tests each build their own context, so there is no shared state
 | Output | Location |
 |---|---|
 | HTML summary | `<module>/target/surefire-reports/sdet-test-report.html` |
+| Extent Spark report | `<module>/target/surefire-reports/extent-report.html` |
 | JUnit XML | `<module>/target/surefire-reports/TEST-*.xml` |
 | Failure screenshots | `<module>/target/screenshots/<Class>-<method>.png` |
 | Failure traces | `<module>/target/traces/<Class>-<method>.zip` |

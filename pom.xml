@@ -33,6 +33,7 @@
         <maven.jar.version>3.4.2</maven.jar.version>
         <exec.plugin.version>3.5.0</exec.plugin.version>
         <spotless.version>2.44.3</spotless.version>
+        <extentreports.version>5.1.2</extentreports.version>
         <!-- Empty by default so an unset -Denv falls through to TEST_ENV, then to local. -->
         <env/>
         <skipTests>false</skipTests>
@@ -90,6 +91,11 @@
                 <artifactId>snakeyaml</artifactId>
                 <version>${snakeyaml.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.aventstack</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>${extentreports.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -123,7 +129,7 @@
                     <properties>
                         <property>
                             <name>listener</name>
-                            <value>com.sdet.framework.commons.listeners.TestLogListener,com.sdet.framework.commons.listeners.RetryListener,com.sdet.framework.commons.reporting.HtmlReportListener</value>
+                            <value>com.sdet.framework.commons.listeners.TestLogListener,com.sdet.framework.commons.listeners.RetryListener,com.sdet.framework.commons.reporting.HtmlReportListener,com.sdet.framework.commons.reporting.ExtentReportListener</value>
                         </property>
                     </properties>
                 </configuration>
